@@ -24,15 +24,6 @@ services:
       - ./mu-docker-event-query/src:/app/
     environment:
       SLEEP_PERIOD: '10'
-  docker-watcher:
-    build: ./mu-docker-watcher
-    volumes:
-      - ./mu-docker-watcher/supervisord.conf:/etc/supervisord.conf
-      - ./containers:/app/containers
-      - ./pcap:/app/pcap/
-    network_mode: host
-    environment:
-      PCAP_READ_DIR: '/pcap'
   har-transformation:
     build: ./mu-har-transformation
     volumes:
